@@ -1,0 +1,46 @@
+[
+
+    {
+        "name": "Mobile",
+        "networks": [
+        {
+            "name": "Smart",
+            "description" : "Smart Communications",
+            "suboptions" : [
+                {
+                    "name" : "Call,Text and Data Promos"
+                },
+                {
+                    "name": "Load"
+                },
+                {
+                    "name" : "Value added services"
+                }
+
+                ]
+        },
+        {
+            "name": "Globe",
+            "description" : "Globe Telecom"
+        },
+        {
+            "name": "Sun",
+            "description" : "Sun Cellular"
+        }]
+    },
+
+
+    {
+        "name": "Promos"
+    }, 
+
+
+    {
+        "name": "Custom"
+    }, 
+
+
+    {
+        "name": "Favorites"
+    }
+]

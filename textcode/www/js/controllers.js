@@ -7,6 +7,11 @@
         var txtcodeSrv = this;
         this.textcodes = [];
 
+
+        this.groupId = 0;
+        this.subId = 0;
+        this.item = 0;
+
         var addTextCode = function(newObj) {
             textcodes.push(newObj);
         };
@@ -19,10 +24,19 @@
             this.textcodes = txtcode;
         };
 
+        var setId = function (type , ind ){
+            if ( type == "group")
+                this.groupId = ind;
+            else if ( type == "sub")
+                this.subId = ind;
+            else if ( type == "item")
+                this.item = ind;
+        }
         return {
             addTextCode: addTextCode,
             getTextCodes: getTextCodes,
-            setTextCodes: setTextCodes
+            setTextCodes: setTextCodes,
+            setId: setId
         };
 
     });
@@ -48,6 +62,10 @@
 
         if (!$scope.groups.length)
             $scope.groups = this.getDataJson();
+
+        $scope.setGroupId =function ( ind ){
+            textcodeService.setId("group",  ind  );
+        };
 
         $scope.loginData = {};
 
@@ -108,9 +126,22 @@
 
 
     app.controller('MobileCtrl', function($scope, $stateParams, textcodeService) {
-        var ind = $stateParams.grouplistsId.substr(1);
-        var groups = textcodeService.getTextCodes();
-        $scope.group = groups[ind];
+        
+        var textcodes = textcodeService.getTextCodes();
+        $scope.mobile = textcodes[textcodeService.groupId];
+
+        $scope.subId = 0 ;
+
+        $scope.setSubId = function( ind ){
+            textcodeService.subId = ind;
+        };
+
+    });
+
+    app.controller('SubMobileCtrl', function($scope, $stateParams, textcodeService) {
+
+        var textcodes = textcodeService.getTextCodes();
+        $scope.network = textcodes[textcodeService.groupId].networks[textcodeService.subId];
 
     });
 

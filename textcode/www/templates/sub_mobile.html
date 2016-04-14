@@ -1,0 +1,18 @@
+<ion-view view-title="{{network.name}}">
+<ion-content>
+<!-- <ion-list>
+<ion-item class="item item-divider" ng-repeat="network in group.networks" href="#/app/playlists/{{playlist.id}}">
+{{network.name}}
+</ion-item>
+</ion-list> -->
+
+<ion-list>
+  <ion-item ng-repeat="suboption in network.list" href="#/app/item/{{$index}}">
+    {{suboption.name}}
+  </ion-item>
+</ion-list>
+
+
+
+</ion-content>
+</ion-view>

@@ -60,11 +60,21 @@ angular.module('textcode', ['ionic', 'textcode.controllers'])
     })
 
     .state('app.mobile', {
-      url: '/mobile/:grouplistsId',
+      url: '/mobile/:ind',
       views: {
         'menuContent': {
           templateUrl: 'templates/mobile.html',
           controller: 'MobileCtrl'
+        }
+      }
+    })
+
+    .state('app.submobile', {
+      url: '/sub/:ind',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/sub_mobile.html',
+          controller: 'SubMobileCtrl'
         }
       }
     })

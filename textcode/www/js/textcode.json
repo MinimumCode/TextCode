@@ -6,15 +6,13 @@
         {
             "name": "Smart",
             "description" : "Smart Communications",
-            "suboptions" : [
+            "list" : [
                 {
-                    "name" : "Call,Text and Data Promos"
-                },
-                {
-                    "name": "Load"
-                },
-                {
-                    "name" : "Value added services"
+                    "name" : "All text 10",
+                    "textcode": "alltxt10",
+                    "number": "8888",
+                    "description": "All text 10 smart",
+                    "category": "call and text"
                 }
 
                 ]

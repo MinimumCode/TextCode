@@ -14,8 +14,8 @@
                     </p>
                 </p>
                 <p>
-                    <button class="button button-small button-outline button-balanced">
-                        Send code
+                    <button class="button button-small button-outline button-balanced" ng-click="showAlert()">
+                        {{sendstatus}}
                     </button>
                     <button class="button button-small ion-star button-balanced" ng-click="togglefav()" ng-class="item.fav ? 'button-balanced' : 'button-outline'">
                     {{ item.fav ? 'added' : 'add to favorites' }}

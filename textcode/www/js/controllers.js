@@ -85,13 +85,13 @@
     })
 
 
-    app.controller('MobileCtrl', function($scope, $stateParams, textcodeService, mobileService ) {
+    app.controller('MobileCtrl', function($scope, $stateParams, textcodeService, mobileService) {
 
         var textcodes = textcodeService.getTextCodes();
         $scope.mobile = textcodes[textcodeService.groupId];
-        
-        $scope.setItems = function( items ) {
-            mobileService.items =  items;
+
+        $scope.setItems = function(items) {
+            mobileService.items = items;
         };
 
 
@@ -102,29 +102,54 @@
     app.controller('SubMobileCtrl', function($scope, $stateParams, textcodeService, mobileService) {
 
         $scope.items = mobileService.items;
-        $scope.setItem = function (item) {
+        $scope.setItem = function(item) {
             textcodeService.currentItem = item;
         }
 
     });
 
 
-    app.controller('MobileItemCtrl', function($scope, $stateParams, textcodeService) {
+    app.controller('MobileItemCtrl', function($scope, $ionicPopup, $ionicLoading, textcodeService) {
         $scope.item = textcodeService.currentItem;
+        $scope.sendstatus = "Send";
+        $scope.togglefav = function() {
 
-        $scope.togglefav = function () {
-
-            if ($scope.item.fav)
-            {
+            if ($scope.item.fav) {
                 //TODO: add code for removing from favorites
                 $scope.item.fav = false;
-            }
-            else
-            {
+            } else {
                 //TODO: add code for adding to favorites
                 $scope.item.fav = true;
             }
         };
+        $scope.show = function() {
+            $ionicLoading.show({
+                template: '<ion-spinner class="spinner-energized"></ion-spinner>'
+            });
+            $scope.sendstatus = "Sending...";
+
+            setTimeout(function() {
+                $ionicLoading.hide();
+                $scope.sendstatus = "Sent...";
+            }, 1000);
+
+        };
+
+        $scope.showAlert = function() {
+            $scope.sendstatus = "Sending...";
+            setTimeout(function() {
+                $ionicPopup.alert({
+                    title: 'Sent!',
+                    template: 'Sending successful.'
+                }).then(function(res) {
+                    console.log('TODO: actually send the text code.');
+                    $scope.sendstatus = "Send";
+                });
+            }, 1000);
+
+        };
+
+
     });
 
     app.controller('PlaylistCtrl', function($scope, $stateParams) {});

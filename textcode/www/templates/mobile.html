@@ -7,7 +7,7 @@
 </ion-list> -->
         <div class="list">
             <a class="item item-thumbnail-left" ng-repeat="network in mobile.groups" href="#/app/sub/:{{$index}}" ng-click="setSubId($index)">
-                <img src="img/ionic.png">
+            	<img src="#" onerror="this.src='img/ionic.png'">
                 <h2>{{network.name}}</h2>
                 <p>{{network.description}}</p>
             </a>

@@ -1,0 +1,27 @@
+<ion-view view-title="{{item.name}}">
+    <ion-content>
+        <div class="card">
+            <div class="item item-avatar">
+                <img ng-src="{{item.icon}}">
+                <h2>{{item.name}}</h2>
+            </div>
+            <div class="item item-body">
+                <p>
+                    {{item.description}} {{item.instructions}}
+                    <p>
+                        <a href="#" class="subdued">Price: P {{item.price}}</a>
+                        <a href="#" class="subdued">Valid for: {{item.validity}}</a>
+                    </p>
+                </p>
+                <p>
+                    <button class="button button-small button-outline button-balanced">
+                        Send code
+                    </button>
+                    <button class="button button-small ion-star button-balanced" ng-click="togglefav()" ng-class="item.fav ? 'button-balanced' : 'button-outline'">
+                    {{ item.fav ? 'added' : 'add to favorites' }}
+                    </button>
+                </p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -85,24 +85,46 @@
     })
 
 
-    app.controller('MobileCtrl', function($scope, $stateParams, textcodeService) {
+    app.controller('MobileCtrl', function($scope, $stateParams, textcodeService, mobileService ) {
 
         var textcodes = textcodeService.getTextCodes();
         $scope.mobile = textcodes[textcodeService.groupId];
-
-        $scope.subId = 0;
-
-        $scope.setSubId = function(ind) {
-            textcodeService.subId = ind;
+        
+        $scope.setItems = function( items ) {
+            mobileService.items =  items;
         };
+
+
+
 
     });
 
-    app.controller('SubMobileCtrl', function($scope, $stateParams, textcodeService) {
+    app.controller('SubMobileCtrl', function($scope, $stateParams, textcodeService, mobileService) {
 
-        var textcodes = textcodeService.getTextCodes();
-        $scope.group = textcodes[textcodeService.groupId].groups[textcodeService.subId];
+        $scope.items = mobileService.items;
+        $scope.setItem = function (item) {
+            textcodeService.currentItem = item;
+        }
 
+    });
+
+
+    app.controller('MobileItemCtrl', function($scope, $stateParams, textcodeService) {
+        $scope.item = textcodeService.currentItem;
+
+        $scope.togglefav = function () {
+
+            if ($scope.item.fav)
+            {
+                //TODO: add code for removing from favorites
+                $scope.item.fav = false;
+            }
+            else
+            {
+                //TODO: add code for adding to favorites
+                $scope.item.fav = true;
+            }
+        };
     });
 
     app.controller('PlaylistCtrl', function($scope, $stateParams) {});

@@ -6,10 +6,10 @@
 </ion-item>
 </ion-list> -->
         <div class="list">
-            <a class="item item-thumbnail-left" ng-repeat="network in mobile.groups" href="#/app/sub/:{{$index}}" ng-click="setSubId($index)">
+            <a class="item item-thumbnail-left" ng-repeat="group in mobile.groups" href="#/app/sub/:{{$index}}" ng-click="setItems(this.group.items);">
             	<img src="#" onerror="this.src='img/ionic.png'">
-                <h2>{{network.name}}</h2>
-                <p>{{network.description}}</p>
+                <h2>{{group.name}}</h2>
+                <p>{{group.description}}</p>
             </a>
         </div>
     </ion-content>

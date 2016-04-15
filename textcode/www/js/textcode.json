@@ -10,14 +10,23 @@
                     "name": "All text 10",
                     "textcode": "alltxt10",
                     "number": "9999",
-                    "description": "All text 10 smart",
-                    "category": "call and text"
+                    "price" : "10.99",
+                    "validity": "1 day",
+                    "description": "75 All-Net SMS, Free Viber.",
+                    "instructions" : "Text AT10 to 9999",
+                    "category": "call and text",
+                    "icon" : "img/subs-messaging.png",
+                    "fav": false
                 }, {
                     "name": "All text 20",
-                    "textcode": "alltxt10",
+                    "textcode": "alltxt20",
                     "number": "9999",
-                    "description": "All text 10 smart",
-                    "category": "call and text"
+                    "price" : "20",
+                    "validity": "1 day",
+                    "description": "75 All-Net SMS, Free Viber.",
+                    "instructions" : "Text AT20 to 9999",
+                    "category": "call and text",
+                    "icon" : "img/subs-messaging.png"
                 }
 
 

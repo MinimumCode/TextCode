@@ -2,6 +2,12 @@
 
     var app = angular.module('textcode.services', []);
 
+    app.service( 'mobileService', function () {
+        this.currentItem = [];
+        this.group = [];
+        this.items;
+    });
+
     app.service('textcodeService', function($http) {
         var txtcodeSrv = this;
         this.textcodes = [];
@@ -10,6 +16,8 @@
         this.groupId = 0;
         this.subId = 0;
         this.item = 0;
+
+        this.currentItem = [];
 
         var addTextCode = function(newObj) {
             textcodes.push(newObj);

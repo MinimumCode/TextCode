@@ -5,6 +5,7 @@
         "groups": [{
             "name": "Smart",
             "description": "Smart Communications",
+            "theme":"balanced",
             "items": [{
                     "name": "All text 10",
                     "textcode": "alltxt10",

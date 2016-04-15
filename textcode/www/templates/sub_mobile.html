@@ -1,31 +1,21 @@
 <ion-view view-title="{{group.name}}">
-<ion-content>
-<!-- <ion-list>
+    <ion-content>
+        <!-- <ion-list>
 <ion-item class="item item-divider" ng-repeat="network in group.networks" href="#/app/playlists/{{playlist.id}}">
 {{network.name}}
 </ion-item>
 </ion-list> -->
-
-<ion-list>
-  <ion-item ng-repeat="item in group.items" href="#/app/item/{{$index}}" class="item-icon-right" >
-    {{item.name}}
-
-   	<a click-for-options class="icon ion-navicon"></a>
-
-    <ion-option-button class="button-calm"
-                       ng-click="edit(item)">
-    Send
-    </ion-option-button>
-
-
-    <ion-option-button class="button-energized"
-                       ng-click="edit(item)">
-    <i class="icon ion-star"></i>
-    </ion-option-button>
-  </ion-item>
-</ion-list>
-
-
-
-</ion-content>
+        <ion-list>
+            <ion-item ng-repeat="item in group.items" href="#/app/item/{{$index}}" class="item-icon-right">
+                {{item.name}}
+                <a click-for-options class="icon ion-navicon"></a>
+                <ion-option-button class="button-calm" ng-click="edit(item)">
+                    Send
+                </ion-option-button>
+                <ion-option-button class="button-energized" ng-click="edit(item)">
+                    <i class="icon ion-star"></i>
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>

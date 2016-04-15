@@ -7,7 +7,7 @@
       Code from flavordaaave. Thanks dude this is awesome :)
       https://forum.ionicframework.com/t/ion-option-button-in-list-toggle-by-icon-click-instead-of-swipe/9703/12
     */
-    
+
     app.directive('clickForOptions', ['$ionicGesture',
         function($ionicGesture) {
             return {

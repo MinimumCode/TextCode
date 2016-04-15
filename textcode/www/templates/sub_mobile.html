@@ -7,8 +7,10 @@
 </ion-list> -->
 
 <ion-list>
-  <ion-item ng-repeat="item in group.items" href="#/app/item/{{$index}}">
+  <ion-item ng-repeat="item in group.items" href="#/app/item/{{$index}}" class="item-icon-right" >
     {{item.name}}
+
+   	<a click-for-options class="icon ion-navicon"></a>
 
     <ion-option-button class="button-calm"
                        ng-click="edit(item)">

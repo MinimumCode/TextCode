@@ -141,7 +141,7 @@
     app.controller('SubMobileCtrl', function($scope, $stateParams, textcodeService) {
 
         var textcodes = textcodeService.getTextCodes();
-        $scope.network = textcodes[textcodeService.groupId].networks[textcodeService.subId];
+        $scope.group = textcodes[textcodeService.groupId].groups[textcodeService.subId];
 
     });
 

@@ -1,4 +1,4 @@
-<ion-view view-title="{{network.name}}">
+<ion-view view-title="{{group.name}}">
 <ion-content>
 <!-- <ion-list>
 <ion-item class="item item-divider" ng-repeat="network in group.networks" href="#/app/playlists/{{playlist.id}}">
@@ -7,8 +7,19 @@
 </ion-list> -->
 
 <ion-list>
-  <ion-item ng-repeat="suboption in network.list" href="#/app/item/{{$index}}">
-    {{suboption.name}}
+  <ion-item ng-repeat="item in group.items" href="#/app/item/{{$index}}">
+    {{item.name}}
+
+    <ion-option-button class="button-calm"
+                       ng-click="edit(item)">
+    Send
+    </ion-option-button>
+
+
+    <ion-option-button class="button-energized"
+                       ng-click="edit(item)">
+    <i class="icon ion-star"></i>
+    </ion-option-button>
   </ion-item>
 </ion-list>
 

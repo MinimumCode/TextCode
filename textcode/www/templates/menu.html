@@ -18,7 +18,7 @@
     </ion-header-bar>
     <ion-content>
     <ion-list ng-repeat="(key, value) in groups">
-        <ion-item menu-close  href="#/app/mobile/:{{value.name}}" ng-click="setGroupId($index)">
+        <ion-item menu-close  href="#/app/{{value.name | lowercase }}" ng-click="setGroupId($index)">
           {{value.name}}
         </ion-item>
     </ion-list>

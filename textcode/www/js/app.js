@@ -60,7 +60,7 @@ angular.module('textcode', ['ionic', 'textcode.controllers'])
     })
 
     .state('app.mobile', {
-      url: '/mobile/:ind',
+      url: '/mobile',
       views: {
         'menuContent': {
           templateUrl: 'templates/mobile.html',

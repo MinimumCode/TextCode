@@ -2,18 +2,26 @@
 
     {
         "name": "Mobile",
-        "networks": [
+        "groups": [
         {
             "name": "Smart",
             "description" : "Smart Communications",
-            "list" : [
+            "items" : [
                 {
                     "name" : "All text 10",
                     "textcode": "alltxt10",
-                    "number": "8888",
+                    "number": "9999",
+                    "description": "All text 10 smart",
+                    "category": "call and text"
+                },
+                {
+                    "name" : "All text 20",
+                    "textcode": "alltxt10",
+                    "number": "9999",
                     "description": "All text 10 smart",
                     "category": "call and text"
                 }
+
 
                 ]
         },

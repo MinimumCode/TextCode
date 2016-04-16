@@ -112,6 +112,10 @@
     app.controller('MobileItemCtrl', function($scope, $ionicPopup, $ionicLoading, textcodeService) {
         $scope.item = textcodeService.currentItem;
         $scope.sendstatus = "Send";
+
+        $scope.btn_send_status = false;
+
+
         $scope.togglefav = function() {
 
             if ($scope.item.fav) {
@@ -135,15 +139,20 @@
 
         };
 
-        $scope.showAlert = function() {
+        $scope.showAlert = function( items ) {
             $scope.sendstatus = "Sending...";
+            $scope.btn_send_status = true;
+           
+            console.log( "Sending item code: ", $scope.item );
             setTimeout(function() {
+
                 $ionicPopup.alert({
                     title: 'Sent!',
                     template: 'Sending successful.'
                 }).then(function(res) {
                     console.log('TODO: actually send the text code.');
                     $scope.sendstatus = "Send";
+                    $scope.btn_send_status = false;
                 });
             }, 1000);
 

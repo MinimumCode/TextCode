@@ -3,24 +3,20 @@
         <div class="card">
             <div class="item item-avatar">
                 <img ng-src="{{item.icon}}">
-                <h2>{{item.name}}</h2>
+                <h2>{{item.name}} </h2>
+                <p>
+                   <button class="button button-clear button-small icon-left ion-star" ng-click="togglefav()" ng-class="item.fav ? 'button-balanced' : 'button-positive'">{{ item.fav ? 'added' : 'add to favorites' }}</button> 
+                </p>
+                <p>
             </div>
             <div class="item item-body">
-                <p>
-                    {{item.description}} {{item.instructions}}
-                    <p>
-                        <a href="#" class="subdued">Price: P {{item.price}}</a>
-                        <a href="#" class="subdued">Valid for: {{item.validity}}</a>
-                    </p>
+                {{item.description}} {{item.instructions}}
                 </p>
                 <p>
-                    <button class="button button-small button-outline button-balanced" ng-click="showAlert()">
-                        {{sendstatus}}
-                    </button>
-                    <button class="button button-small ion-star button-balanced" ng-click="togglefav()" ng-class="item.fav ? 'button-balanced' : 'button-outline'">
-                    {{ item.fav ? 'added' : 'add to favorites' }}
-                    </button>
+                    <a href="#" class="subdued">Price: P {{item.price}}</a>
+                    <a href="#" class="subdued">Valid for: {{item.validity}}</a>
                 </p>
+                <button class="button  button-block button-outline button-balanced icon-right ion-chevron-right " ng-click="showAlert()"> {{sendstatus}}</button>
             </div>
         </div>
     </ion-content>

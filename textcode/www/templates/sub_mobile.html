@@ -1,5 +1,4 @@
-<ion-view view-title="{{items.name}}">
-
+<ion-view view-title="">
     <ion-content>
         <!-- <ion-list>
 <ion-item class="item item-divider" ng-repeat="network in group.networks" href="#/app/playlists/{{playlist.id}}">
@@ -7,7 +6,7 @@
 </ion-item>
 </ion-list> -->
         <ion-list>
-            <ion-item ng-repeat="item in items" href="#/app/mobileitem" class="item-icon-right" ng-click="setItem(this.item)">
+            <ion-item ng-repeat="item in items | filter:search" href="#/app/mobileitem" class="item-icon-right" ng-click="setItem(this.item)">
                 {{item.name}}
                 <p>{{item.description}}</p>
                 <a click-for-options class="icon ion-navicon"></a>
@@ -20,4 +19,16 @@
             </ion-item>
         </ion-list>
     </ion-content>
+    <ion-footer-bar align-title="left">
+        <div class="buttons">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="search">
+            </label>
+        </div>
+        <h1 class="title"></h1>
+        <div class="buttons" ng-click="doSomething()">
+            <button class="button">Filter</button>
+        </div>
+    </ion-footer-bar>
 </ion-view>

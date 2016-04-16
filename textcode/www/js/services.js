@@ -12,7 +12,20 @@
         var txtcodeSrv = this;
         this.textcodes = [];
 
+        var favorites = [];
 
+        var addToFavorites = function( item ) {
+            favorites.push( item );
+        };
+
+        var removeFromFavorites = function( item ) {
+            favorites = favorites.filter(function(el){ return el.textcode != item.textcode; });
+        };
+
+        var getFavorites = function() {
+            return favorites;
+        };
+        
         this.groupId = 0;
         this.subId = 0;
         this.item = 0;
@@ -43,7 +56,11 @@
             addTextCode: addTextCode,
             getTextCodes: getTextCodes,
             setTextCodes: setTextCodes,
-            setId: setId
+            setId: setId,
+            addToFavorites: addToFavorites,
+            removeFromFavorites: removeFromFavorites,
+            getFavorites : getFavorites
+
         };
 
     });

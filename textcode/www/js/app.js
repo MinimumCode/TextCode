@@ -106,7 +106,18 @@ angular.module('textcode', ['ionic', 'textcode.controllers', 'textcode.directive
                 controller: 'PlaylistCtrl'
             }
         }
-    });
+    })
+
+    .state('app.fav', {
+        url: '/favorites',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/favorites.html',
+                controller: 'FavoritesCtrl'
+            }
+        }
+    })
+
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/front');
 });

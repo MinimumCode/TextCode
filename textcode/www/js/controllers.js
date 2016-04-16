@@ -116,14 +116,16 @@
         $scope.btn_send_status = false;
 
 
-        $scope.togglefav = function() {
+        $scope.togglefav = function( item ) {
 
             if ($scope.item.fav) {
                 //TODO: add code for removing from favorites
                 $scope.item.fav = false;
+                textcodeService.removeFromFavorites( item );
             } else {
                 //TODO: add code for adding to favorites
                 $scope.item.fav = true;
+                textcodeService.addToFavorites( item );
             }
         };
         $scope.show = function() {
@@ -160,6 +162,13 @@
 
 
     });
+
+
+    app.controller('FavoritesCtrl', function($scope, textcodeService) {
+        $scope.favorites = [];
+        $scope.favorites = textcodeService.getFavorites();
+    });
+
 
     app.controller('PlaylistCtrl', function($scope, $stateParams) {});
 

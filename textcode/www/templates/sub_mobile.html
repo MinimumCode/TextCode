@@ -1,12 +1,7 @@
 <ion-view view-title="">
     <ion-content>
-        <!-- <ion-list>
-<ion-item class="item item-divider" ng-repeat="network in group.networks" href="#/app/playlists/{{playlist.id}}">
-{{network.name}}
-</ion-item>
-</ion-list> -->
         <ion-list>
-            <ion-item ng-repeat="item in items | filter:search" href="#/app/mobileitem" class="item-icon-right" ng-click="setItem(this.item)">
+            <ion-item ng-repeat="item in items | filter:search" href="#/app/mobileitem/:{{$index}}" class="item-icon-right" ng-click="setItem(this.item)">
                 {{item.name}}
                 <p>{{item.description}}</p>
                 <p>P {{item.price}} / {{item.validity}}</p>

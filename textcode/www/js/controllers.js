@@ -94,9 +94,6 @@
             mobileService.items = items;
         };
 
-
-
-
     });
 
     app.controller('SubMobileCtrl', function($scope, $stateParams, textcodeService, mobileService) {
@@ -109,7 +106,7 @@
     });
 
 
-    app.controller('MobileItemCtrl', function($scope, $ionicPopup, $ionicLoading, textcodeService) {
+    app.controller('MobileItemCtrl', function($scope, $ionicPopup, textcodeService) {
         $scope.item = textcodeService.currentItem;
         $scope.sendstatus = "Send";
 
@@ -119,11 +116,10 @@
         $scope.togglefav = function( item ) {
 
             if ($scope.item.fav) {
-                //TODO: add code for removing from favorites
                 $scope.item.fav = false;
                 textcodeService.removeFromFavorites( item );
             } else {
-                //TODO: add code for adding to favorites
+
                 $scope.item.fav = true;
                 textcodeService.addToFavorites( item );
             }
@@ -141,7 +137,7 @@
 
         };
 
-        $scope.showAlert = function( items ) {
+        $scope.sendCode = function( items ) {
             $scope.sendstatus = "Sending...";
             $scope.btn_send_status = true;
            

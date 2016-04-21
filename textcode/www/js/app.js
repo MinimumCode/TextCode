@@ -70,7 +70,7 @@ angular.module('textcode', ['ionic', 'textcode.controllers', 'textcode.directive
     })
 
     .state('app.submobile', {
-        url: '/sub/:ind',
+        url: '/mobileitems/:ind',
         views: {
             'menuContent': {
                 templateUrl: 'templates/sub_mobile.html',
@@ -80,7 +80,7 @@ angular.module('textcode', ['ionic', 'textcode.controllers', 'textcode.directive
     })
 
     .state('app.mobileitem', {
-        url: '/mobileitem',
+        url: '/mobileitem/:ind',
         views: {
             'menuContent': {
                 templateUrl: 'templates/mobileitem.html',

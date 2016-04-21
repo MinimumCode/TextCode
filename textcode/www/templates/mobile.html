@@ -6,7 +6,7 @@
 </ion-item>
 </ion-list> -->
         <div class="list">
-            <a class="item item-thumbnail-left" ng-repeat="group in mobile.groups" href="#/app/sub/:{{$index}}" ng-click="setItems(this.group.items);">
+            <a class="item item-thumbnail-left" ng-repeat="group in mobile.groups" href="#/app/mobileitems/:{{$index}}" ng-click="setItems(this.group.items);">
             	<img src="#" onerror="this.src='img/ionic.png'">
                 <h2>{{group.name}}</h2>
                 <p>{{group.description}}</p>

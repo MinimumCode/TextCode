@@ -9,6 +9,7 @@
             <ion-item ng-repeat="item in items | filter:search" href="#/app/mobileitem" class="item-icon-right" ng-click="setItem(this.item)">
                 {{item.name}}
                 <p>{{item.description}}</p>
+                <p>P {{item.price}} / {{item.validity}}</p>
                 <a click-for-options class="icon ion-navicon"></a>
                 <ion-option-button class="button-calm" ng-click="edit(item)">
                     Send

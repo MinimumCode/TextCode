@@ -1,0 +1,16 @@
+<ion-view view-title="Sent Items">
+    <ion-content>
+       
+        <ion-list>
+            <ion-item ng-repeat="item in sentItems track by $index" >
+                <h2>{{item.name}}</h2>
+                <p>{{item.description}}</p>
+                <p>P {{item.price}} / {{item.validity}}</p>
+                <p>{{item.time}}</p>
+                
+            </ion-item>
+        </ion-list>
+
+
+    </ion-content>
+</ion-view>

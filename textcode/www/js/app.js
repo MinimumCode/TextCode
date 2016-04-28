@@ -118,6 +118,16 @@ angular.module('textcode', ['ionic', 'textcode.controllers', 'textcode.directive
         }
     })
 
+    .state('app.sentitems', {
+        url: '/sentitems',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/sent_items.html',
+                controller: 'SentItemsCtrl'
+            }
+        }
+    })
+
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/front');
 });

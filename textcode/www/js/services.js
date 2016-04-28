@@ -12,6 +12,7 @@
 
         var favorites = [];
         var textcodes = [];
+        var sent_items = [];
         
         var addToFavorites = function( item ) {  
             favorites.push( item );
@@ -24,6 +25,19 @@
         var getFavorites = function() {
             return favorites;
         };
+
+
+        var addToSentItems = function ( item ) {
+            ctime = new Date();
+            item.time = ctime.toLocaleString() ;
+            sent_items.push(item);
+        }
+
+        var getSentItems = function ( item ) {
+            return sent_items;
+        }
+
+
         
         this.groupId = 0;
         this.subId = 0;
@@ -57,7 +71,9 @@
             setId: setId,
             addToFavorites: addToFavorites,
             removeFromFavorites: removeFromFavorites,
-            getFavorites : getFavorites
+            getFavorites : getFavorites,
+            addToSentItems: addToSentItems,
+            getSentItems : getSentItems
 
         };
 

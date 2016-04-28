@@ -153,6 +153,7 @@
                     console.log('TODO: actually send the text code.');
                     $scope.sendstatus = "Send";
                     $scope.btn_send_status = false;
+                    textcodeService.addToSentItems($scope.item);
                 });
             }, 1000);
 
@@ -175,6 +176,16 @@
         });
     });
 
+
+    app.controller('SentItemsCtrl', function($scope, textcodeService) {
+
+        $scope.sentItems = [];
+        $scope.$on("$ionicView.enter", function(event, data) {
+            if ($scope.sentItems.length !== textcodeService.getSentItems().length) {
+                $scope.sentItems = textcodeService.getSentItems();
+            }
+        });
+    });
 
     app.controller('PlaylistCtrl', function($scope, $stateParams) {});
 

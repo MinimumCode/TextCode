@@ -28,8 +28,8 @@
 
 
         var addToSentItems = function ( item ) {
-            ctime = new Date();
-            item.time = ctime.toLocaleString() ;
+            item.ctime = new Date();
+            item.time = item.ctime.toLocaleString() ;
             sent_items.push(item);
         }
 

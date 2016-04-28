@@ -177,7 +177,7 @@
     });
 
 
-    app.controller('SentItemsCtrl', function($scope, textcodeService) {
+    app.controller('SentItemsCtrl', function($scope, $ionicPopup, textcodeService) {
 
         $scope.sentItems = [];
         $scope.$on("$ionicView.enter", function(event, data) {
@@ -185,6 +185,36 @@
                 $scope.sentItems = textcodeService.getSentItems();
             }
         });
+
+
+        $scope.showFilters = function() {
+            $scope.filterdate = new Date();
+
+            var filterpopup = $ionicPopup.show({
+                template: '<input type="date" ng-model="filterdate">',
+                title: 'Filter date',
+                subTitle: 'Enter date that you want to filter',
+                scope: $scope,
+                buttons: [
+                    { text: 'Cancel' }, {
+                        text: '<b>Filter</b>',
+                        type: 'button-positive',
+                        onTap: function(e) {
+                            if (!$scope.filterdate) {
+                                e.preventDefault();
+                            } else {
+                                return $scope.filterdate;
+                            }
+                        }
+                    }
+                ]
+            });
+
+        }
+
+
+
+
     });
 
     app.controller('PlaylistCtrl', function($scope, $stateParams) {});

@@ -1,9 +1,15 @@
 <ion-view view-title="Favorites">
     <ion-content>
-        <ion-list>
-            <ion-item ng-repeat="favorite in favorites | filter:true" href="#/app/playlists/{{playlist.id}}">
+        <ion-list ng-hide="isFavEmpty">
+            <ion-item ng-repeat="favorite in favorites" href="#/app/playlists/{{playlist.id}}">
                 {{favorite.name}}
             </ion-item>
         </ion-list>
+
+        <div class="card"  ng-show="isFavEmpty" >
+		  <div class="item item-text-wrap" align="center">
+		  	Favorites is empty. <br/> You can add items to favorite by clicking the <i class="icon ion-star"></i> star icon.
+		  </div>
+		</div>
     </ion-content>
 </ion-view>

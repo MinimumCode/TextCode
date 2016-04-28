@@ -8,13 +8,12 @@
         this.items;
     });
 
-    app.service('textcodeService', function($http) {
-        var txtcodeSrv = this;
-        this.textcodes = [];
+    app.service('textcodeService', function($http , $rootScope) {
 
         var favorites = [];
-
-        var addToFavorites = function( item ) {
+        var textcodes = [];
+        
+        var addToFavorites = function( item ) {  
             favorites.push( item );
         };
 
@@ -29,7 +28,6 @@
         this.groupId = 0;
         this.subId = 0;
         this.item = 0;
-
         this.currentItem = [];
 
         var addTextCode = function(newObj) {
@@ -37,11 +35,11 @@
         };
 
         var getTextCodes = function() {
-            return this.textcodes;
+            return textcodes;
         };
 
         var setTextCodes = function(txtcode) {
-            this.textcodes = txtcode;
+            textcodes = txtcode;
         };
 
         var setId = function(type, ind) {

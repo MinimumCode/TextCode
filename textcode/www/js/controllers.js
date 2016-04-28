@@ -107,24 +107,25 @@
 
 
     app.controller('MobileItemCtrl', function($scope, $ionicPopup, textcodeService) {
+
         $scope.item = textcodeService.currentItem;
         $scope.sendstatus = "Send";
-
         $scope.btn_send_status = false;
 
-
-        $scope.togglefav = function( item ) {
+        $scope.toggleFav = function(item) {
 
             if ($scope.item.fav) {
                 $scope.item.fav = false;
-                textcodeService.removeFromFavorites( item );
+                textcodeService.removeFromFavorites(item);
             } else {
 
                 $scope.item.fav = true;
-                textcodeService.addToFavorites( item );
+                textcodeService.addToFavorites(item);
             }
         };
-        $scope.show = function() {
+
+
+        $scope.showLoading = function() {
             $ionicLoading.show({
                 template: '<ion-spinner class="spinner-energized"></ion-spinner>'
             });
@@ -137,17 +138,18 @@
 
         };
 
-        $scope.sendCode = function( items ) {
+        $scope.sendCode = function(items) {
             $scope.sendstatus = "Sending...";
             $scope.btn_send_status = true;
-           
-            console.log( "Sending item code: ", $scope.item );
+
+            console.log("Sending item code: ", $scope.item);
             setTimeout(function() {
 
                 $ionicPopup.alert({
                     title: 'Sent!',
                     template: 'Sending successful.'
                 }).then(function(res) {
+                    /*TODO: actually sending the text code and saving it*/
                     console.log('TODO: actually send the text code.');
                     $scope.sendstatus = "Send";
                     $scope.btn_send_status = false;
@@ -161,8 +163,16 @@
 
 
     app.controller('FavoritesCtrl', function($scope, textcodeService) {
+
         $scope.favorites = [];
-        $scope.favorites = textcodeService.getFavorites();
+        $scope.$on("$ionicView.enter", function(event, data) {
+            if ($scope.favorites.length !== textcodeService.getFavorites().length) {
+                $scope.favorites = textcodeService.getFavorites();
+            }
+
+            $scope.favorites.length == 0 ? $scope.isFavEmpty = true :
+                $scope.isFavEmpty = false;
+        });
     });
 
 

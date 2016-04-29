@@ -145,52 +145,37 @@
             console.log("Sending item code: ", $scope.item);
 
 
-             document.addEventListener("deviceready", function() {
+            document.addEventListener("deviceready", function() {
 
-                            //CONFIGURATION
-                            var options = {
-                                replaceLineBreaks: false, // true to replace \n by a new line, false by default
-                                android: {
-                                    intent: 'INTENT' // send SMS with the native android SMS messaging
-                                    //intent: '' // send SMS without open any other app
-                                }
-                            };
+                //CONFIGURATION
+                var options = {
+                    replaceLineBreaks: false, // true to replace \n by a new line, false by default
+                    android: {
+                        intent: 'INTENT' // send SMS with the native android SMS messaging
+                        //intent: '' // send SMS without open any other app
+                    }
+                };
 
-                            /*TODO: Remove debug number*/
-                            $cordovaSms
-                                .send('094936974611', 'SMS content')
-                                .then(function() {
-                                    $ionicPopup.alert({
-                                        title: 'Sent!',
-                                        template: 'Sending successful.'
-                                    }).then(function(res) {
-                                        console.log('TODO: actually send the text code.');
-                                        $scope.sendstatus = "Send";
-                                        $scope.btn_send_status = false;
-                                        textcodeService.addToSentItems($scope.item);
-                                    });
-                                }, function(error) {
-                                    alert(error);
-                                    $scope.sendstatus = "Send";
-                                    $scope.btn_send_status = false;
-                                });
+                /*TODO: Remove debug number*/
+                $cordovaSms
+                    .send('09493697461', 'SMS content', options)
+                    .then(function() {
+                        $ionicPopup.alert({
+                            title: 'Sent!',
+                            template: 'Sending successful.'
+                        }).then(function(res) {
+                            console.log('TODO: actually send the text code.');
+                            $scope.sendstatus = "Send";
+                            $scope.btn_send_status = false;
+                            textcodeService.addToSentItems($scope.item);
                         });
-
-
-
+                    }, function(error) {
+                        alert(error);
+                        $scope.sendstatus = "Send";
+                        $scope.btn_send_status = false;
+                    });
+            });
         };
-
-        var sendSMSCode = function(item) {
-            $cordovaSms
-                .send('phonenumber', 'SMS content', options)
-                .then(function() {
-                    return true;
-                }, function(error) {
-                    return false;
-                    console.log(error);
-                });
-        };
-
 
     });
 

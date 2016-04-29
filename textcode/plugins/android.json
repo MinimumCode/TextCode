@@ -7,6 +7,9 @@
         "files": {}
     },
     "installed_plugins": {
+        "com.cordova.plugins.sms": {
+            "PACKAGE_NAME": "com.ionicframework.textcode115950"
+        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.textcode115950"
         },
@@ -23,9 +26,6 @@
             "PACKAGE_NAME": "com.ionicframework.textcode115950"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.textcode115950"
-        },
-        "com.cordova.plugins.sms": {
             "PACKAGE_NAME": "com.ionicframework.textcode115950"
         }
     },

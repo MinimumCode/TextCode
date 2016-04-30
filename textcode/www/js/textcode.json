@@ -1,63 +1,86 @@
 [
 
-    {
-        "name": "Mobile",
-        "groups": [{
-            "name": "Smart",
-            "description": "Smart Communications",
-            "theme":"balanced",
-            "items": [{
-                    "name": "All text 10",
-                    "textcode": "alltxt10",
-                    "number": "9999",
-                    "price" : "10.99",
-                    "validity": "1 day",
-                    "description": "75 All-Net SMS, Free Viber.",
-                    "instructions" : "Text AT10 to 9999",
-                    "category": "call and text",
-                    "icon" : "img/subs-messaging.png",
-                    "fav": false
-                }, {
-                    "name": "All text 20",
-                    "textcode": "alltxt20",
-                    "number": "9999",
-                    "price" : "20.99",
-                    "validity": "2 days",
-                    "description": "75 All-Net SMS, Free Viber.",
-                    "instructions" : "Text AT10 to 9999",
-                    "category": "call and text",
-                    "icon" : "img/subs-messaging.png",
-                    "fav": false
-                }, {
-                    "name": "All text 30",
-                    "textcode": "alltxt30",
-                    "number": "9999",
-                    "price" : "30.99",
-                    "validity": "2 days",
-                    "description": "175 All-Net SMS, Free Viber.",
-                    "instructions" : "Text AT10 to 9999",
-                    "category": "ws",
-                    "icon" : "img/subs-messaging.png",
-                    "fav": false
-                }
-
-
-            ]
+  {
+    "name": "Mobile",
+    "groups": [{
+      "name": "Smart",
+      "description": "Smart Communications",
+      "theme":"balanced",
+      "items": [
+        {
+          "name": "Load balance",
+          "textcode": "?1515",
+          "number": "214",
+          "price" : "0",
+          "validity": " ",
+          "description": "Check load balance",
+          "instructions" : "Text ?1515 to 214.",
+          "category": "text",
+          "icon" : "img/subs-messaging.png",
+          "fav": false
+        },{
+          "name": "All text 10",
+          "textcode": "alltxt10",
+          "number": "9999",
+          "price" : "10.99",
+          "validity": "1 day",
+          "description": "75 All-Net SMS, Free Viber.",
+          "instructions" : "Text AT10 to 9999",
+          "category": "call and text",
+          "icon" : "img/subs-messaging.png",
+          "fav": false
         }, {
-            "name": "Globe",
-            "description": "Globe Telecom"
+          "name": "All text 20",
+          "textcode": "alltxt20",
+          "number": "9999",
+          "price" : "20.99",
+          "validity": "2 days",
+          "description": "75 All-Net SMS, Free Viber.",
+          "instructions" : "Text AT10 to 9999",
+          "category": "call and text",
+          "icon" : "img/subs-messaging.png",
+          "fav": false
         }, {
-            "name": "Sun",
-            "description": "Sun Cellular"
-        }]
-    },
+          "name": "Debug",
+          "textcode": "this is a test sms",
+          "number": "09493697461",
+          "price" : "1",
+          "validity": " ",
+          "description": "This is a test",
+          "instructions" : "Remove this for release",
+          "category": "ws",
+          "icon" : "img/subs-messaging.png",
+          "fav": false
+        }, {
+          "name": "All text 30",
+          "textcode": "alltxt30",
+          "number": "9999",
+          "price" : "30.99",
+          "validity": "2 days",
+          "description": "175 All-Net SMS, Free Viber.",
+          "instructions" : "Text AT10 to 9999",
+          "category": "ws",
+          "icon" : "img/subs-messaging.png",
+          "fav": false
+        }
 
 
-    {
-        "name": "Promos"
-    },
+      ]
+    }, {
+      "name": "Globe",
+      "description": "Globe Telecom"
+    }, {
+      "name": "Sun",
+      "description": "Sun Cellular"
+    }]
+  },
 
-    {
-        "name": "Favorites"
-    }
+
+  {
+    "name": "Promos"
+  },
+
+  {
+    "name": "Favorites"
+  }
 ]

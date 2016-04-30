@@ -96,7 +96,7 @@
 
     });
 
-    app.controller('SubMobileCtrl', function($scope, $stateParams, textcodeService, mobileService) {
+    app.controller('MobileItemsCtrl', function($scope, $stateParams, textcodeService, mobileService) {
 
         $scope.items = mobileService.items;
         $scope.setItem = function(item) {
@@ -106,7 +106,7 @@
     });
 
 
-    app.controller('MobileItemCtrl', function($scope, $ionicPopup, $cordovaSms, textcodeService) {
+    app.controller('MobileItemCtrl', function($scope, $ionicPopup, $ionicLoading, $cordovaSms, textcodeService) {
 
         $scope.item = textcodeService.currentItem;
         $scope.sendstatus = "Send";
@@ -125,56 +125,68 @@
         };
 
 
-        $scope.showLoading = function() {
+        var showLoading = function() {
             $ionicLoading.show({
                 template: '<ion-spinner class="spinner-energized"></ion-spinner>'
             });
             $scope.sendstatus = "Sending...";
+            $scope.btn_send_status = true;
 
             setTimeout(function() {
                 $ionicLoading.hide();
-                $scope.sendstatus = "Sent...";
+                $scope.sendstatus = "Send";
+                $scope.btn_send_status = false;
             }, 1000);
 
         };
 
-        $scope.sendCode = function(items) {
-            $scope.sendstatus = "Sending...";
-            $scope.btn_send_status = true;
+        $scope.sendCode = function() {
 
-            console.log("Sending item code: ", $scope.item);
+            var sendSMSCode = function() {
 
+                document.addEventListener("deviceready", function() {
 
-            document.addEventListener("deviceready", function() {
+                    //CONFIGURATION
+                    var options = {
+                        replaceLineBreaks: false, // true to replace \n by a new line, false by default
+                        android: {
+                            intent: ''
+                        }
+                    };
 
-                //CONFIGURATION
-                var options = {
-                    replaceLineBreaks: false, // true to replace \n by a new line, false by default
-                    android: {
-                        intent: 'INTENT' // send SMS with the native android SMS messaging
-                        //intent: '' // send SMS without open any other app
-                    }
-                };
+                    var success = function() {
 
-                /*TODO: Remove debug number*/
-                $cordovaSms
-                    .send('09493697461', 'SMS content', options)
-                    .then(function() {
                         $ionicPopup.alert({
                             title: 'Sent!',
                             template: 'Sending successful.'
                         }).then(function(res) {
-                            console.log('TODO: actually send the text code.');
+                            textcodeService.addToSentItems($scope.item);
                             $scope.sendstatus = "Send";
                             $scope.btn_send_status = false;
-                            textcodeService.addToSentItems($scope.item);
+
                         });
-                    }, function(error) {
-                        alert(error);
-                        $scope.sendstatus = "Send";
-                        $scope.btn_send_status = false;
-                    });
-            });
+
+                    };
+
+                    /*TODO: Remove debug number*/
+                    console.log("Sending code , Number: " +  $scope.item.number + " code:'" + $scope.item.textcode + "'");
+                    var error = function(e) { alert('Message Failed:' + e); };
+                    sms.send( $scope.item.number, $scope.item.textcode, options, success, error);
+
+
+
+                });
+            };
+
+            
+            showLoading();
+            if (!textcodeService.isDebugMode())
+                sendSMSCode();
+            else
+                textcodeService.addToSentItems($scope.item);
+
+
+
         };
 
     });

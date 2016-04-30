@@ -8,12 +8,18 @@
         this.items;
     });
 
-    app.service('textcodeService', function($http , $rootScope) {
+    app.service('textcodeService', function() {
 
         var favorites = [];
         var textcodes = [];
         var sent_items = [];
-        
+        var debug = false;
+
+
+        var isDebugMode = function() {  
+            return debug;
+        };
+
         var addToFavorites = function( item ) {  
             favorites.push( item );
         };
@@ -73,7 +79,9 @@
             removeFromFavorites: removeFromFavorites,
             getFavorites : getFavorites,
             addToSentItems: addToSentItems,
-            getSentItems : getSentItems
+            getSentItems : getSentItems,
+            isDebugMode : isDebugMode
+
 
         };
 

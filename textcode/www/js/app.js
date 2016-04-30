@@ -73,8 +73,8 @@ angular.module('textcode', ['ionic', 'textcode.controllers', 'textcode.directive
         url: '/mobileitems/:ind',
         views: {
             'menuContent': {
-                templateUrl: 'templates/sub_mobile.html',
-                controller: 'SubMobileCtrl'
+                templateUrl: 'templates/mobile_items.html',
+                controller: 'MobileItemsCtrl'
             }
         }
     })

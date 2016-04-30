@@ -94,6 +94,9 @@
             mobileService.items = items;
         };
 
+        
+
+
     });
 
     app.controller('MobileItemsCtrl', function($scope, $stateParams, textcodeService, mobileService) {
@@ -102,6 +105,18 @@
         $scope.setItem = function(item) {
             textcodeService.currentItem = item;
         }
+
+        $scope.toggleFav = function(item) {
+
+            if (item.fav) {
+                item.fav = false;
+                textcodeService.removeFromFavorites(item);
+            } else {
+                item.fav = true;
+                textcodeService.addToFavorites(item);
+            }
+        };
+
 
     });
 

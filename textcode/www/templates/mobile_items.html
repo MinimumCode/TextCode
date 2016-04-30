@@ -4,10 +4,10 @@
             <ion-item ng-repeat="item in items | filter:search" href="#/app/mobileitem/:{{$index}}" class="item-icon-right" ng-click="setItem(this.item)">
                 {{item.name}}
                 <p>{{item.description}}</p>
-                <p>P {{item.price}} / {{item.validity}}</p>
+                <p>P {{item.price}} <span ng-show="item.validity.length"> /{{item.validity}} </span> </p>
                 <a click-for-options class="icon ion-navicon"></a>
                 
-                <ion-option-button class="button-energized" ng-click="edit(item)">
+                <ion-option-button ng-click="toggleFav(item)" ng-class="item.fav ? 'button-balanced' : 'button-energized'">
                     <i class="icon ion-star"></i>
                 </ion-option-button>
             </ion-item>

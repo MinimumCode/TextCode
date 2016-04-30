@@ -1,7 +1,7 @@
 <ion-view view-title="">
     <ion-content>
         <ion-list>
-            <ion-item ng-repeat="item in items | filter:search" href="#/app/mobileitem/:{{$index}}" class="item-icon-right" ng-click="setItem(this.item)">
+            <ion-item ng-repeat="item in items | orderBy:'name' | filter:search" href="#/app/mobileitem/:{{$index}}" class="item-icon-right" ng-click="setItem(this.item)">
                 {{item.name}}
                 <p>{{item.description}}</p>
                 <p>P {{item.price}} <span ng-show="item.validity.length"> /{{item.validity}} </span> </p>

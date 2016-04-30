@@ -14,7 +14,7 @@
                 </p>
                 <p>
                     <a href="#" class="subdued">Price: P {{item.price}}</a>
-                    <a href="#" class="subdued">Valid for: {{item.validity}}</a>
+                    <a href="#" class="subdued" ng-show="item.validity.length">Valid for: {{item.validity}}</a>
                 </p>
                 <button class="button  button-block button-outline button-balanced icon-right ion-chevron-right " ng-click="sendCode()" ng-disabled="btn_send_status"> {{sendstatus}}</button>
             </div>

@@ -20,3 +20,13 @@
 
 }
 
+.item {
+	background-color: transparent;
+	border-style: none;
+}
+
+
+.item-complex .item-content, .item-radio .item-content {
+	background-image: url('../img/grey.png');
+	border-style: none;
+}

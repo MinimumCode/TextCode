@@ -1,3 +1,22 @@
 .scroll-content{
-  background-image: url('/img/crossword.png');
+  
 }
+
+.greytilebg {
+	background-image: url('/img/grey.png');
+    background-repeat: repeat;
+
+}
+
+.center.con {
+    margin: auto;
+    width: 100%;
+    padding: 10%;
+    padding-top: 30%;
+    text-align: center;
+}
+.menu-icon {
+	margin-right: 5px;
+
+}
+

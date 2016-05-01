@@ -94,9 +94,6 @@
             mobileService.items = items;
         };
 
-        
-
-
     });
 
     app.controller('MobileItemsCtrl', function($scope, $stateParams, textcodeService, mobileService) {
@@ -116,16 +113,20 @@
                 textcodeService.addToFavorites(item);
             }
         };
-
-
     });
 
 
-    app.controller('MobileItemCtrl', function($scope, $ionicPopup, $ionicLoading, $cordovaSms, textcodeService) {
+
+    app.controller('MobileItemCtrl', function($scope, $ionicPopup, $ionicLoading,
+        $ionicHistory, $cordovaSms, textcodeService) {
 
         $scope.item = textcodeService.currentItem;
         $scope.sendstatus = "Send";
         $scope.btn_send_status = false;
+
+        $scope.myGoBack = function() {
+            $ionicHistory.goBack();
+        };
 
         $scope.toggleFav = function(item) {
 
@@ -184,16 +185,16 @@
                     };
 
                     /*TODO: Remove debug number*/
-                    console.log("Sending code , Number: " +  $scope.item.number + " code:'" + $scope.item.textcode + "'");
+                    console.log("Sending code , Number: " + $scope.item.number + " code:'" + $scope.item.textcode + "'");
                     var error = function(e) { alert('Message Failed:' + e); };
-                    sms.send( $scope.item.number, $scope.item.textcode, options, success, error);
+                    sms.send($scope.item.number, $scope.item.textcode, options, success, error);
 
 
 
                 });
             };
 
-            
+
             showLoading();
             if (!textcodeService.isDebugMode())
                 sendSMSCode();

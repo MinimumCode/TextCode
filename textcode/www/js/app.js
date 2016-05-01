@@ -4,9 +4,12 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('textcode', ['ionic', 'textcode.controllers', 'textcode.directives', 'ngCordova' ])
+angular.module('textcode', ['ionic', 'textcode.controllers', 'textcode.directives', 'ngCordova'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $state) {
+
+
+
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -20,12 +23,15 @@ angular.module('textcode', ['ionic', 'textcode.controllers', 'textcode.directive
             StatusBar.styleDefault();
         }
     });
+
+
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
 
-    .state('app', {
+        .state('app', {
         url: '/app',
         abstract: true,
         templateUrl: 'templates/menu.html',
@@ -42,13 +48,13 @@ angular.module('textcode', ['ionic', 'textcode.controllers', 'textcode.directive
     })
 
     .state('app.browse', {
-        url: '/browse',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/browse.html'
+            url: '/browse',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/browse.html'
+                }
             }
-        }
-    })
+        })
         .state('app.playlists', {
             url: '/playlists',
             views: {
@@ -80,14 +86,14 @@ angular.module('textcode', ['ionic', 'textcode.controllers', 'textcode.directive
     })
 
     .state('app.mobileitem', {
-        url: '/mobileitem/:ind',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/mobileitem.html',
-                controller: 'MobileItemCtrl'
+            url: '/mobileitem/:ind',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/mobileitem.html',
+                    controller: 'MobileItemCtrl'
+                }
             }
-        }
-    })
+        })
         .state('app.front', {
             url: '/front',
             views: {

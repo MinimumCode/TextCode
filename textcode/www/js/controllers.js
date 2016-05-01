@@ -13,9 +13,9 @@
             }).then(function successCallback(response) {
                 textcodeService.setTextCodes(response.data);
                 $scope.groups = response.data;
-                console.log($scope.groups);
+                console.log('Appctrl::getDataJson: Got response data ' + $scope.groups);
             }, function errorCallback(response) {
-                console.log("Failed to get data.json");
+                console.log("Appctrl::getDataJson: Failed to get data.json");
             });
         };
 

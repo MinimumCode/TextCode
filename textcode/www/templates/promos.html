@@ -1,0 +1,16 @@
+<ion-view view-title="Promos" view-with-bg>
+    <ion-content class="greytilebg">
+        <!-- <ion-list>
+<ion-item class="item item-divider" ng-repeat="network in group.networks" href="#/app/playlists/{{playlist.id}}">
+{{network.name}}
+</ion-item>
+</ion-list> -->
+        <div class="list">
+            <a class="item item-thumbnail-left" ng-repeat="group in mobile.groups" href="#/app/mobileitems/:{{$index}}" ng-click="setItems(this.group.items);">
+            	<img src="#" onerror="this.src='img/ionic.png'">
+                <h2>{{group.name}}</h2>
+                <p>{{group.description}}</p>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

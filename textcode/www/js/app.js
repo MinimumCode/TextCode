@@ -31,7 +31,7 @@ angular.module('textcode', ['ionic', 'textcode.controllers', 'textcode.directive
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
 
-        .state('app', {
+    .state('app', {
         url: '/app',
         abstract: true,
         templateUrl: 'templates/menu.html',
@@ -93,8 +93,21 @@ angular.module('textcode', ['ionic', 'textcode.controllers', 'textcode.directive
                     controller: 'MobileItemCtrl'
                 }
             }
-        })
-        .state('app.front', {
+    })
+
+
+    .state('app.promos', {
+            url: '/promos',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/promos.html',
+                    controller: 'PromoItemsCtrl'
+                }
+            }
+    })
+
+
+    .state('app.front', {
             url: '/front',
             views: {
                 'menuContent': {
@@ -102,7 +115,7 @@ angular.module('textcode', ['ionic', 'textcode.controllers', 'textcode.directive
                     controller: 'FrontPageCtrl'
                 }
             }
-        })
+    })
 
     .state('app.single', {
         url: '/playlists/:playlistId',

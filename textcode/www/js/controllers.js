@@ -117,6 +117,20 @@
 
 
 
+    app.controller('PromoItemsCtrl', function($scope, $stateParams, textcodeService, mobileService) {
+
+        var textcodes = textcodeService.getTextCodes();
+        $scope.mobile = textcodes[textcodeService.groupId];
+
+        $scope.setItems = function(items) {
+            mobileService.items = items;
+        };
+        
+    });
+
+
+
+
     app.controller('MobileItemCtrl', function($scope, $ionicPopup, $ionicLoading,
         $ionicHistory, $cordovaSms, textcodeService) {
 

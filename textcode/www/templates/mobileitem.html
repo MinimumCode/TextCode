@@ -1,8 +1,7 @@
-<ion-view hide-nav-bar="true"  class="mobileitem">
+<ion-view hide-nav-bar="true" class="mobileitem">
     <ion-content class="greytilebg">
-        <div class="center con" >
+        <div class="center con">
             <div>
-               
                 <h2>{{item.name}} </h2>
                 <p>
                     <button class="button button-clear button-small icon-left ion-star" ng-click="toggleFav( item )" ng-class="item.fav ? 'button-balanced' : 'button-positive'">{{ item.fav ? 'added' : 'add to favorites' }}</button>
@@ -18,14 +17,12 @@
                 </p>
                 <div class="row">
                     <div class="col col-50">
-                       <button class="button  button-block  button-clear button-balanced" ng-click="myGoBack()">Cancel</button> 
+                        <button class="button  button-block  button-clear button-balanced" ng-click="myGoBack()">Cancel</button>
                     </div>
                     <div class="col col-50">
                         <button class="button  button-block  button-clear button-balanced" ng-click="sendCode()" ng-disabled="btn_send_status">{{sendstatus}}</button>
                     </div>
-                   
                 </div>
-                
             </div>
         </div>
     </ion-content>

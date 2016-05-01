@@ -1,6 +1,5 @@
 <ion-side-menus enable-menu-with-back-views="false">
     <ion-side-menu-content>
-
         <ion-nav-bar class="bar-balanced">
             <ion-nav-back-button>
             </ion-nav-back-button>
@@ -9,26 +8,24 @@
                 </button>
             </ion-nav-buttons>
         </ion-nav-bar>
-
         <ion-nav-view name="menuContent"></ion-nav-view>
     </ion-side-menu-content>
     <ion-side-menu side="left" expose-aside-when="large">
-
         <ion-header-bar class="bar-balanced">
             <h1 class="title">TextCodes</h1>
         </ion-header-bar>
-
         <ion-content class="greytilebg">
             <ion-list ng-repeat="(key, value) in groups">
                 <ion-item menu-close href="#/app/{{ value.name | lowercase }}" ng-click="setGroupId($index)">
                     <i class="fa fa-lg menu-icon" ng-class="value.icon" aria-hidden="true"></i>{{value.name}}
                 </ion-item>
             </ion-list>
-            <ion-list>        
+            <ion-list>
+                <ion-item menu-close href="#/app/favorites">
+                    <i class="fa fa-lg menu-icon fa-heart" aria-hidden="true"></i> Favorites
+                </ion-item>
                 <ion-item menu-close href="#/app/sentitems">
-                    
-                    <i class="fa fa-lg menu-icon fa-arrow-right"  aria-hidden="true"></i>
-                    Sent Items
+                    <i class="fa fa-lg menu-icon fa-arrow-right" aria-hidden="true"></i> Sent Items
                 </ion-item>
             </ion-list>
         </ion-content>
